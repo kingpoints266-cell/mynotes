@@ -3,7 +3,7 @@ site_url: https://xurry.github.io/  # 部署后的网址
 
 theme:
   name: material
-  logo: assets/logo.jpg
+  logo: assets/logo.png
   # 浏览器标签栏的小图标
   favicon: assets/favicon.png
   # 还可以顺便改一下配色，让它更有个性
