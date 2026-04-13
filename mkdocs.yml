@@ -5,7 +5,7 @@ theme:
   name: material
   logo: assets/logo.png
   # 浏览器标签栏的小图标
-  favicon: assets/favicon.png
+  favicon: assets/logo.png
   # 还可以顺便改一下配色，让它更有个性
   palette:
     primary: indigo # 主色调（顶部栏）
