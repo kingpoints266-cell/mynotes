@@ -3,6 +3,21 @@ site_url: https://xurry.github.io/  # 部署后的网址
 
 theme:
   name: material
+  palette: 
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 切换到深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 切换到浅色模式
   language: zh
   features:
     - navigation.tabs          # 开启顶部一级导航栏
