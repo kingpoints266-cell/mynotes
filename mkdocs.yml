@@ -1,31 +1,36 @@
 site_name: xurry的代码空间  # 你的网站标题
 site_url: https://xurry.github.io/  # 部署后的网址
+copyright: Copyright &copy; 2026 xurry # 底部版权声明，提升正式感
 
 theme:
   name: material
   logo: assets/logo.png
   # 浏览器标签栏的小图标
-  favicon: assets/logo.png
+  favicon: assets/dog.png
   # 还可以顺便改一下配色，让它更有个性
-  palette:
-    primary: indigo # 主色调（顶部栏）
-    accent: indigo  # 交互色（链接、按钮)
+
+  # 1. 【排版升级】设置更优雅的阅读字体和代码字体
+  font:
+    text: Noto Sans SC  # 谷歌开源的无衬线中文字体，阅读体验极佳
+    code: Fira Code     # 程序员必备的等宽连字字体，代码块会变得非常好看
+
   palette: 
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
-      accent: indigo
+      primary: teal # 主色调（顶部栏）
+      accent: light green # 交互色（链接、按钮)
       toggle:
         icon: material/brightness-7
         name: 切换到深色模式
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: teal
+      accent: light green
       toggle:
         icon: material/brightness-4
         name: 切换到浅色模式
   language: zh
+
   features:
     - navigation.tabs          # 开启顶部一级导航栏
     - navigation.sections      # 侧边栏分组显示
@@ -34,6 +39,11 @@ theme:
     - navigation.top           # 显示“回到顶部”按钮
     - search.suggest           # 搜索建议
     - content.code.copy        # 代码块一键复制按钮
+#  【布局升级】新增的沉浸式高级特性
+    - navigation.footer        # 在页面底部显示“上一页/下一页”的漂亮按钮
+    - toc.integrate            # 将当前页的右侧目录树整合进左侧边栏，让版面更清爽大气
+    - header.autohide          # 页面向下滚动时自动隐藏顶部栏，提供沉浸式阅读空间
+    - search.highlight         # 搜索结果关键词高亮显示
 
 # 这里是核心：手动定义导航结构，实现示例那种层级
 nav:
@@ -55,9 +65,32 @@ extra:
       link: mailto:2897964385@qq.com
 
 markdown_extensions:
-  - pymdownx.superfences  # 支持像 Obsidian 一样的 Callouts（警告框）
-  - pymdownx.tabbed:      # 支持选项卡切换（示例里经常用到）
+  # --- 原有配置 ---
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - pymdownx.tabbed:      
       alternate_style: true 
-  - pymdownx.emoji:       # 支持表情符号
-      emoji_index: !!python/name:pymdownx.emoji.twemoji
-      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.emoji:       
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      use_pygments: true    # 启用更强大的代码高亮引擎
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  
+  # 3. 【内容表现力升级】让你的笔记更加硬核且美观
+  - pymdownx.mark           # 支持 ==高亮文本== 语法，就像用荧光笔划重点
+  - pymdownx.keys           # 支持 ++ctrl+c++ 语法，将快捷键渲染成漂亮的按键样式
+  - pymdownx.tasklist:      # 支持漂亮的待办事项框，方便记录复习进度或 Todo list
+      custom_checkbox: true
+  - pymdownx.arithmatex:    # 开启数学公式渲染支持（对算法原理和数学推导极其重要）
+      generic: true
+
+
+# 配合数学公式渲染所需的外部脚本
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
