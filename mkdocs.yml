@@ -3,6 +3,13 @@ site_url: https://xurry.github.io/  # 部署后的网址
 
 theme:
   name: material
+  logo: assets/logo.jpg
+  # 浏览器标签栏的小图标
+  favicon: assets/favicon.png
+  # 还可以顺便改一下配色，让它更有个性
+  palette:
+    primary: indigo # 主色调（顶部栏）
+    accent: indigo  # 交互色（链接、按钮)
   palette: 
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -30,7 +37,7 @@ theme:
 
 # 这里是核心：手动定义导航结构，实现示例那种层级
 nav:
-  - 首页: index.md
+  - 🏠首页: index.md
   - c++基础:
       - vector: c++基础/vector.md
       - stack: c++基础/stack.md
@@ -40,6 +47,12 @@ nav:
       - map: c++基础/map.md
       - priority_queue(优先队列): c++基础/priority_queue(优先队列).md
     
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/kingpoints266-cell
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:2897964385@qq.com
 
 markdown_extensions:
   - pymdownx.superfences  # 支持像 Obsidian 一样的 Callouts（警告框）
