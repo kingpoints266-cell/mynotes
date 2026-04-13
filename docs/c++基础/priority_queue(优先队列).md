@@ -39,7 +39,7 @@
 using namespace std;
 ```
 
-### 默认定义：大根堆
+**默认定义：大根堆**
 
 ```cpp
 priority_queue<int> q;
@@ -80,7 +80,7 @@ q.top() == 5
 
 ## 3. 常用操作
 
-## 3.1 `push()`：插入元素
+### 3.1 `push()`：插入元素
 
 ```cpp
 priority_queue<int> q;
@@ -91,7 +91,7 @@ q.push(20);
 
 ---
 
-## 3.2 `top()`：访问队顶元素
+### 3.2 `top()`：访问队顶元素
 
 ```cpp
 cout << q.top() << endl;
@@ -103,7 +103,7 @@ cout << q.top() << endl;
 
 ---
 
-## 3.3 `pop()`：删除队顶元素
+### 3.3 `pop()`：删除队顶元素
 
 ```cpp
 q.pop();
@@ -125,7 +125,7 @@ q.pop();
 
 ---
 
-## 3.4 `empty()`：判断是否为空
+### 3.4 `empty()`：判断是否为空
 
 ```cpp
 if (q.empty()) {
@@ -135,7 +135,7 @@ if (q.empty()) {
 
 ---
 
-## 3.5 `size()`：返回元素个数
+### 3.5 `size()`：返回元素个数
 
 ```cpp
 cout << q.size() << endl;
@@ -232,7 +232,7 @@ cout << q.top() << endl;   // 9
 
 比赛中也非常常用。
 
-### 写法
+**写法**
 
 ```cpp
 priority_queue<int, vector<int>, greater<int>> q;
@@ -249,7 +249,7 @@ priority_queue<int, vector<int>, greater<int>> q;
 
 这样就是**小根堆**，队顶是最小值。
 
-### 示例
+**示例**
 
 ```cpp
 priority_queue<int, vector<int>, greater<int>> q;
@@ -264,7 +264,7 @@ cout << q.top() << endl;   // 1
 
 ## 8. 大根堆和小根堆对比
 
-## 大根堆
+**大根堆**
 
 ```cpp
 priority_queue<int> q;
@@ -275,7 +275,7 @@ priority_queue<int> q;
 - `top()` 是最大值
     
 
-## 小根堆
+**小根堆**
 
 ```cpp
 priority_queue<int, vector<int>, greater<int>> q;
@@ -303,7 +303,7 @@ priority_queue<pair<int, int>> q;
 - 如果 `first` 相同，再比较 `second`
     
 
-### 示例
+**示例**
 
 ```cpp
 priority_queue<pair<int, int>> q;
@@ -486,7 +486,7 @@ while (!q.empty()) {
 
 有些题目要存结构体，这时就需要自定义比较规则。
 
-### 方法一：在结构体里重载 `<`
+**方法一：在结构体里重载 `<`**
 
 ```cpp
 struct Node {
@@ -505,7 +505,7 @@ priority_queue<Node> q;
 
 ---
 
-### 方法二：自定义比较器
+**方法二：自定义比较器**
 
 ```cpp
 struct cmp {
@@ -523,7 +523,7 @@ priority_queue<int, vector<int>, cmp> q;
 
 ## 17. 常见注意事项
 
-## 17.1 默认是大根堆，不是小根堆
+### 17.1 默认是大根堆，不是小根堆
 
 很多人容易写错。
 
@@ -541,7 +541,7 @@ priority_queue<int, vector<int>, greater<int>> q;
 
 ---
 
-## 17.2 `pop()` 没有返回值
+### 17.2 `pop()` 没有返回值
 
 错误写法：
 
@@ -558,7 +558,7 @@ q.pop();
 
 ---
 
-## 17.3 使用 `top()` 和 `pop()` 前要判空
+### 17.3 使用 `top()` 和 `pop()` 前要判空
 
 ```cpp
 if (!q.empty()) {
@@ -568,7 +568,7 @@ if (!q.empty()) {
 
 ---
 
-## 17.4 不能随机访问，不能遍历中间元素
+### 17.4 不能随机访问，不能遍历中间元素
 
 错误理解：
 
@@ -583,7 +583,7 @@ q.begin()
 
 ---
 
-## 17.5 优先队列内部不一定“整体有序”
+### 17.5 优先队列内部不一定“整体有序”
 
 这是一个很重要的点。
 
@@ -598,7 +598,7 @@ q.begin()
 
 ## 18. 蓝桥杯常见模板
 
-## 18.1 大根堆模板
+### 18.1 大根堆模板
 
 ```cpp
 priority_queue<int> q;
@@ -621,7 +621,7 @@ while (!q.empty()) {
 
 ---
 
-## 18.2 小根堆模板
+### 18.2 小根堆模板
 
 ```cpp
 priority_queue<int, vector<int>, greater<int>> q;
@@ -644,7 +644,7 @@ while (!q.empty()) {
 
 ---
 
-## 18.3 `pair` 小根堆模板
+### 18.3 `pair` 小根堆模板
 
 ```cpp
 priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> q;
@@ -698,19 +698,19 @@ int main() {
 
 ## 20. 必背内容
 
-### 大根堆
+**大根堆**
 
 ```cpp
 priority_queue<int> q;
 ```
 
-### 小根堆
+**小根堆**
 
 ```cpp
 priority_queue<int, vector<int>, greater<int>> q;
 ```
 
-### 常用操作
+**常用操作**
 
 ```cpp
 q.push(x);    // 插入
@@ -720,7 +720,7 @@ q.empty();    // 判空
 q.size();     // 元素个数
 ```
 
-### 最重要的一句
+**最重要的一句**
 
 ```cpp
 int x = q.top();
@@ -756,5 +756,3 @@ q.pop();
     
 
 ---
-
-如果你愿意，我下一条可以继续按同样格式帮你整理 **set / map**，这两个在蓝桥杯里也特别常用。
