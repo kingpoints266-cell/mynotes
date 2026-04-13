@@ -56,6 +56,12 @@ nav:
       - string: c++基础/string.md
       - map: c++基础/map.md
       - priority_queue(优先队列): c++基础/priority_queue(优先队列).md
+  - 🐍python基础:
+      - 引言: python基础/引言.md
+      - 第一章：接触输入输出、变量、简单程序: python基础/第一章：接触输入输出、变量、简单程序.md
+      - 第二章：字符串、列表、字典、元组 : python基础/第二章：字符串、列表、字典、元组 .md
+
+
     
 extra:
   social:
