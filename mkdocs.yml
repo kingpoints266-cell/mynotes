@@ -87,8 +87,9 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.arithmatex:    # 开启数学公式渲染支持（对算法原理和数学推导极其重要）
       generic: true
-
-
+#在文件最底部引入 CSS
+extra_css:
+  - stylesheets/extra.css
 # 配合数学公式渲染所需的外部脚本
 extra_javascript:
   - javascripts/mathjax.js
