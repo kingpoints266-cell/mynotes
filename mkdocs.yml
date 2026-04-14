@@ -75,6 +75,7 @@ extra:
       link: mailto:2897964385@qq.com
 
 markdown_extensions:
+  - tables #制表
   # --- 原有配置 ---
   - pymdownx.superfences
   - admonition
