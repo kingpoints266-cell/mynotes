@@ -48,7 +48,7 @@ theme:
 # 这里是核心：手动定义导航结构，实现示例那种层级
 nav:
   - 🏠首页: index.md
-  - c++基础:
+  - 🧩c++基础:
       - vector: c++基础/vector.md
       - stack: c++基础/stack.md
       - queue: c++基础/queue.md
@@ -58,9 +58,13 @@ nav:
       - priority_queue(优先队列): c++基础/priority_queue(优先队列).md
   - 🐍python基础:
       - 引言: python基础/引言.md
-      - 第一章：接触输入输出、变量、简单程序: python基础/第一章：接触输入输出、变量、简单程序.md
-      - 第二章：字符串、列表、字典、元组 : python基础/第二章：字符串、列表、字典、元组 .md
-
+      - 第1章：接触输入输出、变量、简单程序: python基础/第1章：接触输入输出、变量、简单程序.md
+      - 第2章：字符串、列表、字典、元组: python基础/第2章：字符串、列表、字典、元组.md
+      - 第3章：顺序结构、选择结构、循环结构: python基础/第3章：顺序结构、选择结构、循环结构.md
+      - 第4章：函数与模块: python基础/第4章：函数与模块.md
+      - 第5章：面向对象基础: python基础/第5章：面向对象基础.md
+      - 第6章：文件与文件夹操作: python基础/第6章：文件与文件夹操作.md
+      - 第7章：重点突破--Numpy库: python基础/第7章：重点突破--Numpy库.ipynb
 
     
 extra:
@@ -101,3 +105,9 @@ extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+# 👇 新增这块内容
+plugins:
+  - search # MkDocs 自带的搜索功能（建议保留）
+  - mkdocs-jupyter:
+      execute: false # 推荐设为 false。表示构建网页时不重新运行一遍代码，直接使用原来运行好的结果，这样速度更快。
