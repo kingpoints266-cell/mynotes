@@ -54,7 +54,7 @@ $1$ 个整数，表示锯片的最高高度。
 
 
 !!! tip 
-    [b站讲解](bilibili.com/video/BV1Qa411N71Q/?spm_id_from=333.337.search-card.all.click)  
+    [b站讲解](https://www.bilibili.com/video/BV1Qa411N71Q/)
 
 ---
 
