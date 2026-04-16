@@ -39,7 +39,7 @@
 
 ----
 !!! tip
-    [b站讲解](bilibili.com/video/BV17h4y1E73i/?spm_id_from=333.337.search-card.all.click)
+    [b站讲解](https://www.bilibili.com/video/BV17h4y1E73i/)
 
 
 ---

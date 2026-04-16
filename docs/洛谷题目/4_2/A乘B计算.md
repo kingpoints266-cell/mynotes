@@ -34,3 +34,6 @@
 ## 说明/提示
 
 每个非负整数不超过 $10^{2000}$。
+
+!!! tip
+    [B站讲解](https://www.bilibili.com/video/BV1E7411s7HQ)
