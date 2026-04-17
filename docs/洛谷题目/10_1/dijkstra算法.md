@@ -12,7 +12,7 @@ Dijkstra 是一种用于求 **单源最短路径** 的经典算法。
 
 例如：
 
-```text id="xfr8i2"
+```text
 1号点到2号点最短多远
 1号点到3号点最短多远
 1号点到n号点最短多远
@@ -28,7 +28,7 @@ Dijkstra 适用于：
 
 例如：
 
-```text id="2p89qv"
+```text 
 A -> B 花费 5
 A -> C 花费 2
 ```
@@ -60,7 +60,7 @@ A -> C 花费 2
 
 图：
 
-```text id="6o7j3u"
+```text 
 1 --2--> 2
 1 --5--> 3
 2 --1--> 3
@@ -70,7 +70,7 @@ A -> C 花费 2
 
 初始：
 
-```text id="h4v2xk"
+```text 
 dis[1]=0
 dis[2]=∞
 dis[3]=∞
@@ -78,20 +78,20 @@ dis[3]=∞
 
 先更新：
 
-```text id="vvq8o0"
+```text 
 dis[2]=2
 dis[3]=5
 ```
 
 再选最近点 `2`，通过它更新：
 
-```text id="s2d0mh"
+```text 
 dis[3]=min(5, 2+1)=3
 ```
 
 最终：
 
-```text id="0k0h8z"
+```text 
 1 到 3 最短路 = 3
 ```
 
@@ -99,7 +99,7 @@ dis[3]=min(5, 2+1)=3
 
 适合稠密图、小数据。
 
-```cpp id="4q7u1g"
+```cpp 
 #include <iostream>
 #include <cstring>
 using namespace std;
@@ -139,7 +139,7 @@ void dijkstra(int s)
 
 复杂度：
 
-```text id="c8m5mw"
+```text 
 O(n²)
 ```
 
@@ -149,19 +149,19 @@ O(n²)
 
 使用：
 
-```cpp id="ps9a9d"
+```cpp 
 priority_queue
 ```
 
 复杂度：
 
-```text id="yzq7cl"
+```text 
 O((n+m)logn)
 ```
 
 ## 7. 堆优化模板（竞赛常用）
 
-```cpp id="f3r8o2"
+```cpp 
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -220,7 +220,7 @@ void dijkstra(int s)
 
 普通找法：
 
-```text id="j6w2y4"
+```text 
 O(n)
 ```
 
@@ -254,7 +254,7 @@ O(n)
 
 **数组没初始化**
 
-```cpp id="i2t2is"
+```cpp 
 dis[i] = INF
 ```
 
@@ -264,7 +264,7 @@ dis[i] = INF
 
 堆优化版要写：
 
-```cpp id="m4o8tw"
+```cpp 
 if(vis[u]) continue;
 ```
 
