@@ -100,35 +100,42 @@ dis[3]=min(5, 2+1)=3
 适合稠密图、小数据。
 
 ```cpp 
-#include <iostream>
-#include <cstring>
-using namespace std;
+#include <iostream>   // 输入输出流库，提供 cin / cout
+#include <cstring>    // 提供 memset 等函数
+using namespace std;  // 使用标准命名空间，省去 std::
 
-const int INF = 1e9;
-int g[105][105];
-int dis[105];
-bool vis[105];
-int n, m;
+const int INF = 1e9;  // 定义无穷大，表示两点之间不可达
 
+int g[105][105];      // 邻接矩阵，g[i][j] 表示 i -> j 的边权
+int dis[105];         // dis[i] 表示起点到 i 的当前最短距离
+bool vis[105];        // vis[i] = true 表示该点最短路已确定
+
+int n, m;             // n = 点数，m = 边数
+
+// Dijkstra 算法，求起点 s 到所有点的最短路
 void dijkstra(int s)
 {
+    // 初始化所有距离为无穷大
     for(int i = 1; i <= n; i++)
         dis[i] = INF;
 
-    dis[s] = 0;
+    dis[s] = 0;   // 起点到自身距离为 0
 
+    // 总共进行 n 次操作，每次确定一个点的最短路
     for(int i = 1; i <= n; i++)
     {
-        int u = -1;
+        int u = -1;   // 当前要选出的最近点
 
+        // 找一个未访问过，并且距离最小的点 u
         for(int j = 1; j <= n; j++)
         {
             if(!vis[j] && (u == -1 || dis[j] < dis[u]))
                 u = j;
         }
 
-        vis[u] = true;
+        vis[u] = true;   // 标记该点最短路已确定
 
+        // 用 u 更新其他点的距离（松弛操作）
         for(int v = 1; v <= n; v++)
         {
             dis[v] = min(dis[v], dis[u] + g[u][v]);
@@ -162,49 +169,65 @@ O((n+m)logn)
 ## 7. 堆优化模板（竞赛常用）
 
 ```cpp 
-#include <iostream>
-#include <vector>
-#include <queue>
+#include <iostream>   // 输入输出
+#include <vector>     // 动态数组 vector
+#include <queue>      // 优先队列 priority_queue
 using namespace std;
 
-const int INF = 1e9;
-const int N = 100005;
+const int INF = 1e9;       // 无穷大，表示距离未知
+const int N = 100005;      // 最大点数
 
+// 邻接表：g[u] 存储点 u 连出去的边
+// pair<终点, 权值>
 vector<pair<int,int>> g[N];
-int dis[N];
-bool vis[N];
-int n, m;
 
+int dis[N];    // dis[i] = 起点到 i 的最短距离
+bool vis[N];   // vis[i] = true 表示该点最短路已确定
+
+int n, m;      // n 个点，m 条边
+
+// 堆优化 Dijkstra
 void dijkstra(int s)
 {
+    // 初始化所有距离为无穷大
     for(int i = 1; i <= n; i++)
         dis[i] = INF;
 
+    // 小根堆：
+    // pair<距离, 点编号>
+    // 距离最小的点优先弹出
     priority_queue<
         pair<int,int>,
         vector<pair<int,int>>,
         greater<pair<int,int>>
     > q;
 
-    dis[s] = 0;
-    q.push({0, s});
+    dis[s] = 0;          // 起点到自己距离为 0
+    q.push({0, s});      // 把起点放入堆中
 
     while(!q.empty())
     {
-        int u = q.top().second;
+        int u = q.top().second; // 取出当前最近的点
         q.pop();
 
+        // 如果该点已经处理过，跳过
         if(vis[u]) continue;
-        vis[u] = true;
 
+        vis[u] = true;   // 标记最短路已确定
+
+        // 枚举 u 的所有邻边
         for(auto e : g[u])
         {
-            int v = e.first;
-            int w = e.second;
+            int v = e.first;   // 邻点
+            int w = e.second;  // 边权
 
+            // 松弛操作：
+            // 如果经过 u 到 v 更短，就更新
             if(dis[v] > dis[u] + w)
             {
                 dis[v] = dis[u] + w;
+
+                // 新距离入堆
                 q.push({dis[v], v});
             }
         }
