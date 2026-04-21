@@ -122,6 +122,176 @@ void astar(Node start, Node end) {
 }
 ```
 
+```cpp
+#include <iostream>
+#include <queue>
+#include <vector>
+#include <cstring>
+#include <cmath>
+using namespace std;
+
+const int INF = 1e9;
+const int N = 105;
+
+int n = 5, m = 5;          // 地图大小
+bool vis[N][N];            // 是否访问过
+int dis[N][N];             // 最短距离
+int mp[N][N];              // 地图，0可走，1障碍
+
+struct Node {
+    int x, y, g, h, f;
+    bool operator<(const Node& a) const {
+        return f > a.f;   // f小的优先
+    }
+};
+
+/// 启发函数：曼哈顿距离
+int get_h(Node a, Node b) {
+    return abs(a.x - b.x) + abs(a.y - b.y);
+}
+
+/// 移动代价：走一步花费1
+int cost(Node a, Node b) {
+    return 1;
+}
+
+/// 获取邻居（上下左右）
+vector<Node> get_neighbors(Node u) {
+    vector<Node> res;
+
+    int dx[4] = {1,-1,0,0};
+    int dy[4] = {0,0,1,-1};
+
+    for(int i=0;i<4;i++) {
+        int nx = u.x + dx[i];
+        int ny = u.y + dy[i];
+
+        if(nx < 1 || nx > n || ny < 1 || ny > m) continue;
+        if(mp[nx][ny] == 1) continue; // 障碍物不能走
+
+        res.push_back({nx, ny, 0, 0, 0});
+    }
+
+    return res;
+}
+
+void astar(Node start, Node end) {
+    priority_queue<Node> q;
+
+    memset(vis, false, sizeof(vis));
+
+    for(int i=1;i<=n;i++)
+        for(int j=1;j<=m;j++)
+            dis[i][j] = INF;
+
+    start.g = 0;
+    start.h = get_h(start, end);
+    start.f = start.g + start.h;
+
+    dis[start.x][start.y] = 0;
+    q.push(start);
+
+    while(!q.empty()) {
+        Node u = q.top();
+        q.pop();
+
+        if(u.x == end.x && u.y == end.y) {
+            cout << "最短距离 = " << u.g << endl;
+            return;
+        }
+
+        if(vis[u.x][u.y]) continue;
+        vis[u.x][u.y] = true;
+
+        for(auto next : get_neighbors(u)) {
+            int new_g = u.g + cost(u, next);
+
+            if(new_g < dis[next.x][next.y]) {
+                dis[next.x][next.y] = new_g;
+
+                next.g = new_g;
+                next.h = get_h(next, end);
+                next.f = next.g + next.h;
+
+                q.push(next);
+            }
+        }
+    }
+
+    cout << "无法到达终点\n";
+}
+
+int main() {
+    Node start = {1,1,0,0,0};
+    Node end   = {5,5,0,0,0};
+
+    mp[3][3] = 1; // 障碍物
+
+    astar(start, end);
+
+    return 0;
+}
+```
+
+**示例迷宫**
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Node{
+    int x,y,g,h,f;
+    bool operator<(const Node& a)const{
+        return f>a.f;
+    }
+};
+
+int n,m;
+char mp[105][105];
+int dis[105][105];
+bool vis[105][105];
+
+int dx[4]={1,-1,0,0};
+int dy[4]={0,0,1,-1};
+
+int h(int x,int y,int ex,int ey){
+    return abs(x-ex)+abs(y-ey);
+}
+
+int astar(int sx,int sy,int ex,int ey){
+    priority_queue<Node> q;
+    memset(dis,0x3f,sizeof dis);
+
+    q.push({sx,sy,0,h(sx,sy,ex,ey),h(sx,sy,ex,ey)});
+    dis[sx][sy]=0;
+
+    while(!q.empty()){
+        Node u=q.top(); q.pop();
+
+        if(vis[u.x][u.y]) continue;
+        vis[u.x][u.y]=1;
+
+        if(u.x==ex&&u.y==ey) return u.g;
+
+        for(int i=0;i<4;i++){
+            int nx=u.x+dx[i];
+            int ny=u.y+dy[i];
+
+            if(nx<1||ny<1||nx>n||ny>m) continue;
+            if(mp[nx][ny]=='#') continue;
+
+            int ng=u.g+1;
+
+            if(ng<dis[nx][ny]){
+                dis[nx][ny]=ng;
+                int hh=h(nx,ny,ex,ey);
+                q.push({nx,ny,ng,hh,ng+hh});
+            }
+        }
+    }
+    return -1;
+}
+```
+
 ## 8. 🚀 为什么比 Dijkstra 快
 Dijkstra 属于盲目搜索：
 
