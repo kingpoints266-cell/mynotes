@@ -28,6 +28,19 @@
     int idx1 = lower_bound(a, a + n, x) - a; // 找 >=x 的第一个位置
     int idx2 = upper_bound(v.begin(), v.end(), x) - v.begin(); // 找 >x 的第一个位置
     ```
+    为什么 auto 常用？
+
+    先看这句：
+
+    auto r = lower_bound(a.begin(), a.end(), t);
+    👉 实际返回类型是：
+    vector<int>::iterator
+
+    也就是一个“指针类型的迭代器”。
+
+    如果不用 auto，你必须写：
+
+    vector<int>::iterator r = lower_bound(a.begin(), a.end(), t);
 
 **3. `nth_element()`**
 * **作用：** 寻找第 $k$ 大/小的元素。它会将第 $k$ 个元素放在最终排好序的位置，且其左边的元素都不大于它，右边的元素都不小于它（但不保证左右两边内部有序）。
