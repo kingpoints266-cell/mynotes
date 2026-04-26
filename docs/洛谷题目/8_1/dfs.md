@@ -49,7 +49,7 @@ DFS 本质是：
 
 搜索顺序像这样：
 
-```text id="y9r9xf"
+```text 
 起点
 → 下一点
 → 再下一点
@@ -124,7 +124,7 @@ void dfs(int x, int y)
 
 地图：
 
-```text id="egj8j6"
+```text 
 1 1 0
 0 1 0
 1 0 1
@@ -143,7 +143,7 @@ void dfs(int x, int y)
 
 输出 `1~3` 全排列：
 
-```text id="c3l0a8"
+```text 
 123
 132
 213
