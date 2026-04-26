@@ -58,6 +58,7 @@ nav:
       - priority_queue(优先队列): c++基础/priority_queue(优先队列).md
       - algorithm常用函数: c++基础/algorithm常用函数.md
       - cmath常用函数: c++基础/cmath常用函数.md
+      - 语法细节: c++基础/语法易错点（个人向）.md
   - 🐍python基础:
       - 引言: python基础/引言.md
       - 第1章：接触输入输出、变量、简单程序: python基础/第1章：接触输入输出、变量、简单程序.md

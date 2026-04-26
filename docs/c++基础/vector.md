@@ -99,6 +99,10 @@ v.pop_back();
 
 - 不能对空 `vector` 调用 `pop_back()`
     
+!!! danger
+    pop_back() = 删除最后一个元素（无返回值）
+    back()     = 获取最后一个元素（不删除）
+
 
 ---
 
