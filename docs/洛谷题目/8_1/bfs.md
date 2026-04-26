@@ -228,7 +228,7 @@ int bfs(int sx, int sy)
 
 正确做法：
 
-```cpp id="yfjx7j"
+```cpp 
 入队时标记 vis
 ```
 
