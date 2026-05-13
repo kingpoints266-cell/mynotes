@@ -1,5 +1,6 @@
 site_name: xurry的代码空间  # 你的网站标题
-site_url: https://xurry.github.io/  # 部署后的网址
+
+site_url: https://www.xurry.xyz # 部署后的网址
 copyright: Copyright &copy; 2026 xurry # 底部版权声明，提升正式感
 
 theme:
