@@ -1,2 +1,2 @@
-### 这是我的个人技术博客
+### 这是我的个人博客
 访问网址：https://kingpoints266-cell.github.io/mynotes/
