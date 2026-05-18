@@ -194,6 +194,8 @@ markdown_extensions:
   - pymdownx.arithmatex:    # 开启数学公式渲染支持（对算法原理和数学推导极其重要）
       generic: true
 
+  - attr_list   # 加这一行，就可以在 Markdown 中直接给元素添加属性了，比如给图片加上 class="my-image" 来统一设置样式
+
 #在文件最底部引入 CSS
 extra_css:
   - stylesheets/extra.css
@@ -209,3 +211,5 @@ plugins:
   - search # MkDocs 自带的搜索功能（建议保留）
   - mkdocs-jupyter:
       execute: false # 推荐设为 false。表示构建网页时不重新运行一遍代码，直接使用原来运行好的结果，这样速度更快。
+
+
