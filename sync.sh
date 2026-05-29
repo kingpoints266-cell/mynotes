@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+cd "$(dirname "$0")"
+
 echo "🔄 正在保存本地笔记..."
 git add .
 # Mac 下获取当前日期和时间的语法稍有不同
