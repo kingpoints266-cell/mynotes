@@ -1,4 +1,5 @@
-site/
+docs/
+*.docx
 .vscode/
 __pycache__/
 venv/
