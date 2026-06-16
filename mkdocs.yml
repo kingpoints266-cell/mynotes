@@ -207,7 +207,6 @@ extra_css:
 # 配合数学公式渲染所需的外部脚本
 extra_javascript:
   - javascripts/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 # 👇 新增这块内容
