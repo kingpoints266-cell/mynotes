@@ -29,7 +29,7 @@ Write-Host "[2/3] Committing local changes..."
 git add .
 
 $dateStr = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-$commitOutput = git commit -m "auto update $dateStr" 2>&1
+$null = git commit -m "auto update $dateStr" 2>&1
 if ($LASTEXITCODE -eq 0) {
     Write-Host "  Committed OK: auto update $dateStr"
 } else {
